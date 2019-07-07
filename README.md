@@ -1,6 +1,6 @@
 #### Material for OpenTechSchool Leipzig
 
-#Recipe app with Next.js Server Side Rendering
+# Recipe app with Next.js Server Side Rendering
 
 Full server side rendering setup application with Next.js (Education purpose)
 
