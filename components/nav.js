@@ -1,19 +1,20 @@
-import React from 'react'
-import Link from 'next/link'
+import React from "react";
+import Link from "next/link";
 
 const links = [
-  { href: 'https://github.com/segmentio/create-next-app', label: 'Github' }
+  { href: "/about", label: "About" },
+  { href: "https://github.com/irhamputra/recipe-next", label: "Github" }
 ].map(link => {
-  link.key = `nav-link-${link.href}-${link.label}`
-  return link
-})
+  link.key = `nav-link-${link.href}-${link.label}`;
+  return link;
+});
 
 const Nav = () => (
   <nav>
     <ul>
       <li>
-        <Link prefetch href="/">
-          <a>Home</a>
+        <Link href="/">
+          <a>OpenTechCafetaria</a>
         </Link>
       </li>
       <ul>
@@ -41,19 +42,22 @@ const Nav = () => (
         justify-content: space-between;
       }
       nav > ul {
-        padding: 4px 16px;
+        padding: 0;
       }
       li {
         display: flex;
-        padding: 6px 8px;
+        padding: 20px 0;
+      }
+      li:last-child {
+        padding-left: 20px;
       }
       a {
-        color: #067df7;
+        color: black;
         text-decoration: none;
         font-size: 13px;
       }
     `}</style>
   </nav>
-)
+);
 
-export default Nav
+export default Nav;

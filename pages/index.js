@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import fetch from "isomorphic-unfetch";
 import "semantic-ui-css/semantic.min.css";
-import { Card, Container, Grid, Image } from "semantic-ui-react";
 
 import Head from "../components/head";
 import FormSearch from "../components/form";
+import Layout from "../components/layout";
+import CardRecipe from "../components/cards";
+
 import { API_KEY } from "../config";
 
 const Home = ({ initRecipe }) => {
@@ -28,31 +30,14 @@ const Home = ({ initRecipe }) => {
     setRecipes(data.recipes);
   };
 
-  const renderList = () =>
-    recipes.map(recipe => (
-      <Grid.Column>
-        <Card key={recipe.recipe_id}>
-          <Image wrapped ui={false} src={recipe.image_url} alt={recipe.title} />
-          <Card.Content>
-            <Card.Header>{recipe.title}</Card.Header>
-          </Card.Content>
-        </Card>
-      </Grid.Column>
-    ));
-
   return (
-    <Container>
-      <Head title="Recipe-Next.js" />
-
-      <header>
-        <h1>Recipe | Next.js SSR</h1>
-      </header>
+    <Layout>
+      <Head title="OpenTechCafetaria Leipzig" />
 
       <FormSearch getRecipe={getRecipe} />
-      <Grid columns={4}>
-        <Grid.Row>{renderList()}</Grid.Row>
-      </Grid>
-    </Container>
+
+      {recipes ? <CardRecipe recipes={recipes} /> : <div>No Recipe found</div>}
+    </Layout>
   );
 };
 
